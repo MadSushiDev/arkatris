@@ -10,12 +10,24 @@ public class scr_ball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb.AddForce(Vector2.down * ballSpeed * Time.deltaTime * 100);
+        InitiateBall();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    void InitiateBall() {
+        rb.velocity = new Vector2 (0,0);
+        transform.position = new Vector2(0, 0);
+        rb.AddForce(Vector2.down * ballSpeed * Time.deltaTime * 100);
+    }
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.tag == "DeadEnd") {
+            Debug.Log("Dead");
+            InitiateBall();
+        }
+
     }
 }
