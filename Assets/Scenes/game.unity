@@ -352,6 +352,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: obj_deadEnd
       objectReference: {fileID: 0}
+    - target: {fileID: 1787587251985651056, guid: a5f3c3e38f737d343bd1e811f141d660, type: 3}
+      propertyPath: m_TagString
+      value: DeadEnd
+      objectReference: {fileID: 0}
     - target: {fileID: 1899031995718827570, guid: a5f3c3e38f737d343bd1e811f141d660, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -551,6 +555,10 @@ PrefabInstance:
     - target: {fileID: 1773311014505873798, guid: 5e97388ea96e8824590b7589252aa455, type: 3}
       propertyPath: m_Name
       value: obj_ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 1773311014505873798, guid: 5e97388ea96e8824590b7589252aa455, type: 3}
+      propertyPath: m_TagString
+      value: Ball
       objectReference: {fileID: 0}
     - target: {fileID: 4735631680765549166, guid: 5e97388ea96e8824590b7589252aa455, type: 3}
       propertyPath: m_RootOrder
