@@ -5,10 +5,12 @@ using UnityEngine;
 public class scr_PlayerMovement : MonoBehaviour
 {
 
+    public scr_gameManager gameManagerRef;
     public Rigidbody2D rb;
     private float inputValue;
     public float speed = 25;
     private Vector2 direction;
+
     
     // Start is called before the first frame update
     void Start()
@@ -30,5 +32,11 @@ public class scr_PlayerMovement : MonoBehaviour
         }
 
         rb.AddForce(direction*speed*Time.deltaTime*100);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.tag == "Block") {
+            gameManagerRef.GameOver();
+        }
     }
 }

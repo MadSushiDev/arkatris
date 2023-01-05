@@ -5,11 +5,11 @@ using UnityEngine;
 public class scr_piecesSpawner : MonoBehaviour
 {
     public GameObject[] Pieces;
+    public scr_gameManager gameManagerRef;
     
     // Start is called before the first frame update
     void Start()
     {
-        SpawnPiece();
     }
 
     // Update is called once per frame
@@ -19,9 +19,10 @@ public class scr_piecesSpawner : MonoBehaviour
     }
 
     public void SpawnPiece() {
-
+        if (gameManagerRef.gameStarted) {
+            int randomPos = Random.Range(0, 8);
+            Instantiate(Pieces[Random.Range(0, Pieces.Length)], new Vector3(transform.position.x + randomPos, transform.position.y, 0), Quaternion.identity);
+        }
         
-        int randomPos = Random.Range(0, 6);
-        Instantiate(Pieces[Random.Range(0, Pieces.Length)], new Vector3(transform.position.x+randomPos,transform.position.y,0), Quaternion.identity);
     }
 }

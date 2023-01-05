@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1262876238073744572}
   m_Layer: 0
   m_Name: obj_tetrisBlock_02
-  m_TagString: Untagged
+  m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,3 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb2cbd0cf9c33be478fdf32310b3c233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  piecefeRef: {fileID: 0}
