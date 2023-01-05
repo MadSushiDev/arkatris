@@ -35,7 +35,7 @@ public class scr_gameManager : MonoBehaviour
         FindObjectOfType<scr_piecesSpawner>().SpawnPiece();
         Instantiate(ballRef, playerRef.transform.position, Quaternion.identity);
         score = 0;
-        lives = 3;
+        lives = 999;
         
     }
 

@@ -804,6 +804,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pieces:
   - {fileID: 2889041762327768442, guid: df3e0c9d337bce6419fa5c7b7980f15b, type: 3}
+  - {fileID: 2889041762327768442, guid: acb3a8d201353b3459e0af18dee4ec70, type: 3}
+  - {fileID: 2889041762327768442, guid: fc0904d60ff254d41908b087c6f8c6a3, type: 3}
+  - {fileID: 2889041762327768442, guid: c82172c9b5258874396ba7219daa5913, type: 3}
+  - {fileID: 2889041762327768442, guid: 10a7f9434f5eabc4e942b95d36461748, type: 3}
+  - {fileID: 2889041762327768442, guid: cffa9a36ff4cb0445816ec3b0f089ca1, type: 3}
   gameManagerRef: {fileID: 2043633165}
 --- !u!4 &1171562869 stripped
 Transform:
