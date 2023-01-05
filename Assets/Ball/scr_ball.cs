@@ -23,14 +23,14 @@ public class scr_ball : MonoBehaviour
     }
     void InitiateBall() {
         rb.velocity = new Vector2 (0,0);
-        transform.position = new Vector2(0, 0);
+        transform.position = new Vector2(5, 5);
         velocity.x = Random.Range(-1, 1);
         velocity.y = 1;
         rb.AddForce(velocity * ballSpeed);
     }
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "DeadEnd") {
-            Debug.Log("Dead");
+            
             InitiateBall();
         }
         if (collision.gameObject.name == "obj_Player") {
