@@ -16,7 +16,9 @@ public class scr_tetrisPiece : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //Añade velocidad en función de la puntuación
+        float scoreMultiplicator = FindObjectOfType<scr_gameManager>().score;
+        fallTime = fallTime - scoreMultiplicator / 5000;
     }
 
     // Update is called once per frame
