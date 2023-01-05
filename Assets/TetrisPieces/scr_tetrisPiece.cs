@@ -4,25 +4,19 @@ using UnityEngine;
 
 public class scr_tetrisPiece : MonoBehaviour
 {
-    //public scr_gameManager gameManagerRef;
-    //public GameObject[] blocklist;
-    //public scr_tetrisBlock[] tetrisBlock;
-    //public GameObject instantiateObj;
     public Vector3 rotationPoint;
-    //private int blockAmount;
     private float previousTime;
     public float fallTime = 0.2f;
-    public static int height = 20;//valor original 20
-    public static int width = 10;//valor original 10
+    public static int height = 20;
+    public static int width = 10;
     private static Transform[,] grid = new Transform[width, height];
-    //float targetPos = 3;
-    //bool direction = false; //false es derecha, true es izquierda
-    //bool fallen = false;
+    private int lifePoints = 4;
+
     
     // Start is called before the first frame update
     void Start()
     {
-        //blockAmount = blocklist.Length;
+        
     }
 
     // Update is called once per frame
@@ -113,15 +107,13 @@ public class scr_tetrisPiece : MonoBehaviour
         return true;
     }
    public void Hit() {
-        /*if (fallen == false) { 
-           blockAmount -= 1;
-        if (blockAmount <= 0) {
-               foreach(scr_tetrisBlock block in tetrisBlock) {
-                block.Fall();
-                fallen = true;
-                gameManagerRef.SpawnNewPiece();
+        if (ValidMove()) { 
+           lifePoints -= 1;
+        if (lifePoints <= 0) {
+                FindObjectOfType<scr_piecesSpawner>().SpawnPiece();
+                Destroy(gameObject);
             }
         }
-   }*/
-    }
+   }
+    
 }
