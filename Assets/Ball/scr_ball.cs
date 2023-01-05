@@ -30,8 +30,8 @@ public class scr_ball : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "DeadEnd") {
-            
-            InitiateBall();
+            FindObjectOfType<scr_gameManager>().GameOver();
+            //InitiateBall();
         }
         if (collision.gameObject.name == "obj_Player") {
             float hitFactor(Vector2 ballPos, Vector2 racketPos, float racketWidth) { return (ballPos.x - racketPos.x) / racketWidth; }
