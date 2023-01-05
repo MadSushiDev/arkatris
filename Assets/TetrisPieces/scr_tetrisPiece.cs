@@ -107,9 +107,10 @@ public class scr_tetrisPiece : MonoBehaviour
         return true;
     }
    public void Hit() {
+        FindObjectOfType<scr_gameManager>().AddScore(100);
         if (ValidMove()) { 
            lifePoints -= 1;
-        if (lifePoints <= 0) {
+            if (lifePoints <= 0) {
                 FindObjectOfType<scr_piecesSpawner>().SpawnPiece();
                 Destroy(gameObject);
             }

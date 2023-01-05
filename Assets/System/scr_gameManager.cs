@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class scr_gameManager : MonoBehaviour
 {
     public GameObject startText;
     public GameObject ballRef;
     public GameObject playerRef;
+    public Text scoreText;
     public bool gameStarted = false;
+    public int score;
     
     // Start is called before the first frame update
     void Start()
@@ -21,7 +24,7 @@ public class scr_gameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return)&& !gameStarted) {
             gameStarted = true;
             BeginPlay();
-           
+            UpdateScore();
         }
     }
 
@@ -29,6 +32,8 @@ public class scr_gameManager : MonoBehaviour
         startText.SetActive(false);
         FindObjectOfType<scr_piecesSpawner>().SpawnPiece();
         Instantiate(ballRef, playerRef.transform.position, Quaternion.identity);
+        score = 0;
+        
     }
 
     public void GameOver() {
@@ -44,5 +49,14 @@ public class scr_gameManager : MonoBehaviour
         foreach (var ball in ballInstances) {
             Destroy(ball);
         }
+    }
+
+    public void AddScore(int points) {
+        score += points;
+        UpdateScore();
+    }
+
+    void UpdateScore() {
+        scoreText.text = "SCORE: " + score;
     }
 }
