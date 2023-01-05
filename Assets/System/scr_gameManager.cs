@@ -13,6 +13,8 @@ public class scr_gameManager : MonoBehaviour
     public bool gameStarted = false;
     public int score;
     public int lives = 3;
+    public AudioSource audioSrc;
+    public AudioClip damageClip;
     
     // Start is called before the first frame update
     void Start()
@@ -35,7 +37,7 @@ public class scr_gameManager : MonoBehaviour
         FindObjectOfType<scr_piecesSpawner>().SpawnPiece();
         Instantiate(ballRef, playerRef.transform.position, Quaternion.identity);
         score = 0;
-        lives = 999;
+        lives = 3;
         
     }
 
@@ -60,6 +62,7 @@ public class scr_gameManager : MonoBehaviour
     }
 
     public void Damage(int points) {
+        audioSrc.PlayOneShot(damageClip);
         lives -= points;
         if (lives < 0) {
             lives = 0;

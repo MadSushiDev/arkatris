@@ -6,6 +6,9 @@ public class scr_ball : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float ballSpeed = 25;
+    public AudioSource audioSource;
+    public AudioClip bumpSound;
+    public AudioClip hitDamage;
 
 
     private Vector2 velocity;
@@ -29,6 +32,7 @@ public class scr_ball : MonoBehaviour
         rb.AddForce(velocity * ballSpeed);
     }
     private void OnCollisionEnter2D(Collision2D collision) {
+        audioSource.PlayOneShot(bumpSound);
         if (collision.gameObject.tag == "DeadEnd") {
           FindObjectOfType<scr_gameManager>().Damage(1);
             if (FindObjectOfType<scr_gameManager>().lives > 0) {
@@ -42,6 +46,9 @@ public class scr_ball : MonoBehaviour
             float x = hitFactor(transform.position, collision.transform.position, collision.collider.bounds.size.x);
             Vector2 dir = new Vector2(x, 1).normalized;
             GetComponent<Rigidbody2D>().velocity = dir * ballSpeed/2;
+        }
+        if (collision.gameObject.tag == "Block") {
+            audioSource.PlayOneShot(hitDamage);
         }
 
     }
