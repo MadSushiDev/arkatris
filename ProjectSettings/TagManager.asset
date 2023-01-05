@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ball
   - DeadEnd
+  - Block
   layers:
   - Default
   - TransparentFX
