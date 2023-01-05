@@ -9,8 +9,10 @@ public class scr_gameManager : MonoBehaviour
     public GameObject ballRef;
     public GameObject playerRef;
     public Text scoreText;
+    public Text livesText;
     public bool gameStarted = false;
     public int score;
+    public int lives = 3;
     
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,7 @@ public class scr_gameManager : MonoBehaviour
         FindObjectOfType<scr_piecesSpawner>().SpawnPiece();
         Instantiate(ballRef, playerRef.transform.position, Quaternion.identity);
         score = 0;
+        lives = 3;
         
     }
 
@@ -56,7 +59,16 @@ public class scr_gameManager : MonoBehaviour
         UpdateScore();
     }
 
+    public void Damage(int points) {
+        lives -= points;
+        if (lives < 0) {
+            lives = 0;
+        }
+        UpdateScore();
+
+    }
     void UpdateScore() {
         scoreText.text = "SCORE: " + score;
+        livesText.text = "LIVES: " + lives;
     }
 }

@@ -10,6 +10,7 @@ public class scr_PlayerMovement : MonoBehaviour
     private float inputValue;
     public float speed = 25;
     private Vector2 direction;
+    private bool invulnerable = false;
 
     
     // Start is called before the first frame update
@@ -36,7 +37,20 @@ public class scr_PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "Block") {
-            gameManagerRef.GameOver();
+            if (!invulnerable) {
+                gameManagerRef.Damage(1);
+                invulnerable = true;
+                Invoke("ReturnVulnerable", 3);
+            }
+            if (gameManagerRef.lives > 0) {
+
+            } else gameManagerRef.GameOver();
+
+
         }
+    }
+
+    private void ReturnVulnerable() {
+        invulnerable = false;
     }
 }
